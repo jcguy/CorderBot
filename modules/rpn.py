@@ -1,7 +1,9 @@
 import math
 
-binary_operators = ["+", "-", "*", "/", "^"]
-unary_operators = ["sqrt"]
+constants = {"e" : math.e, "pi" : math.pi}
+
+binary_operators = ["+", "-", "*", "/", "^", "log"]
+unary_operators = ["sqrt", "ln"]
 
 
 def calculate(bot, message):
@@ -18,6 +20,9 @@ def calculate(bot, message):
             pass
 
         try:
+            if token in constants.keys:
+                stack.append(constants[token])
+
             if token in binary_operators:
                 y = stack.pop()
                 x = stack.pop()
@@ -32,12 +37,16 @@ def calculate(bot, message):
                     stack.append(x / y)
                 elif token == "^":
                     stack.append(x ** y)
+                elif token == "ln":
+                    stack.append(math.log(x, y))
 
             elif token in unary_operators:
                 x = stack.pop()
 
                 if token == "sqrt":
                     stack.append(math.sqrt(x))
+                elif token == "ln":
+                    stack.append(math.log(x))
 
             else:
                 bot.send_message(message.chat.id, "Unrecognized operator")
