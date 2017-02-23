@@ -23,7 +23,7 @@ def calculate(bot, message):
             if token in constants.keys():
                 stack.append(constants[token])
 
-            if token in binary_operators:
+            elif token in binary_operators:
                 y = stack.pop()
                 x = stack.pop()
 
