@@ -29,7 +29,9 @@ def handle_commands(message):
 
 
 def main():
+    print("Starting bot")
     bot.polling()
+    print("Shutting down")
 
 
 if __name__ == "__main__":

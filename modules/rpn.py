@@ -7,6 +7,8 @@ unary_operators = ["sqrt"]
 def calculate(bot, message):
     calculation = message.text.split(" ")[2:]
 
+    print(calculation)
+
     stack = []
     for token in calculation:
         try:
