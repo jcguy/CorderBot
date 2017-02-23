@@ -1,3 +1,9 @@
+import math
+
+binary_operators = ["+", "-", "*", "/", "^"]
+unary_operators = ["sqrt"]
+
+
 def calculate(bot, message):
     calculation = message.text.split(" ")[2:]
 
@@ -10,21 +16,36 @@ def calculate(bot, message):
             pass
 
         try:
-            y = stack.pop()
-            x = stack.pop()
-            if token == "+":
-                stack.append(x + y)
-            elif token == "-":
-                stack.append(x - y)
-            elif token == "*":
-                stack.append(x * y)
-            elif token == "/":
-                stack.append(x / y)
-            elif token == "^":
-                stack.append(x ** y)
+            if token in binary_operators:
+                y = stack.pop()
+                x = stack.pop()
+
+                if token == "+":
+                    stack.append(x + y)
+                elif token == "-":
+                    stack.append(x - y)
+                elif token == "*":
+                    stack.append(x * y)
+                elif token == "/":
+                    stack.append(x / y)
+                elif token == "^":
+                    stack.append(x ** y)
+
+            elif token in unary_operators:
+                x = stack.pop()
+
+                if token == "sqrt":
+                    stack.append(math.sqrt(x))
+
+            else:
+                bot.send_message(message.chat.id, "Unrecognized operator")
 
         except IndexError:
             bot.send_message(message.chat.id, "Syntax error")
+            return
+
+        except ValueError:
+            bot.send_message(message.chat.id, "Domain error")
             return
 
         except ZeroDivisionError:
