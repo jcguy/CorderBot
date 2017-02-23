@@ -24,21 +24,21 @@ def calculate(bot, message):
                 stack.append(constants[token])
 
             elif token in binary_operators:
-                y = stack.pop()
                 x = stack.pop()
+                y = stack.pop()
 
                 if token == "+":
-                    stack.append(x + y)
+                    stack.append(y + x)
                 elif token == "-":
-                    stack.append(x - y)
+                    stack.append(y - x)
                 elif token == "*":
-                    stack.append(x * y)
+                    stack.append(y * x)
                 elif token == "/":
-                    stack.append(x / y)
+                    stack.append(y / x)
                 elif token == "^":
-                    stack.append(x ** y)
+                    stack.append(y ** x)
                 elif token == "ln":
-                    stack.append(math.log(x, y))
+                    stack.append(math.log(y, x))
 
             elif token in unary_operators:
                 x = stack.pop()
