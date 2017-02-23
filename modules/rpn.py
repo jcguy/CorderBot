@@ -20,7 +20,7 @@ def calculate(bot, message):
             pass
 
         try:
-            if token in constants.keys:
+            if token in constants.keys():
                 stack.append(constants[token])
 
             if token in binary_operators:
