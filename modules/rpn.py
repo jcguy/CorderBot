@@ -54,4 +54,7 @@ def calculate(bot, message):
             bot.send_message(message.chat.id, "Division by zero")
             return
 
-    bot.send_message(message.chat.id, str(stack[-1]))
+    if len(stack) == 1:
+        bot.send_message(message.chat.id, str(stack[-1]))
+    else:
+        bot.send_message(message.chat.id, "Syntax error")
