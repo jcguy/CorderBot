@@ -1,0 +1,2 @@
+# CorderBot
+A Telegram bot
