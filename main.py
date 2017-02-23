@@ -13,6 +13,10 @@ def handle_commands(message):
     content = message.text.split(" ", maxsplit=1)[-1]
     print(content)
 
+    if len(message.text.split(" ")) == 1:
+        modules.help.send_help(bot, message)
+        return
+
     if "help" in content.lower():
         modules.help.send_help(bot, message)
         return
