@@ -22,7 +22,7 @@ def get_weather(zipcode):
     # except FileNotFoundError:
     #     pass
     #
-    with open("weather_api_key", "r") as api_key:
+    with open("modules/weather_api_key", "r") as api_key:
         APPID = api_key.readlines()[0].strip()
 
     url = "http://api.openweathermap.org/data/2.5/weather?zip={},us".format(zipcode)
