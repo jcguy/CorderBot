@@ -43,12 +43,9 @@ def get_weather(zipcode):
 
 
 def weather(bot, message):
-    try:
-        zipcode = message.text.split(" ")[2]
-        print(zipcode)
-        bot.send_message(message.chat.id, get_weather(zipcode))
-    except Exception:
-        bot.send_message(message.chat.id, "Sorry, I don't understand")
+    zipcode = message.text.split(" ")[2]
+    print(zipcode)
+    bot.send_message(message.chat.id, get_weather(zipcode))
 
 
 def main():
