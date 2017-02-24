@@ -3,5 +3,6 @@ def send_help(bot, message):
                      "All commands start with /c\n" +
                      "\nAvailable commands:" +
                      "\n\thelp" +
-                     "\n\trpn"
+                     "\n\trpn" +
+                     "\n\tweather"
                      )

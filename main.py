@@ -30,6 +30,9 @@ def handle_commands(message):
         modules.weather.weather(bot, message)
         return
 
+    if "ice" in content.lower() and "water" in content.lower():
+        modules.quotes.ice(bot, message)
+
     bot.send_message(message.chat.id, "Command not recognized.")
 
 
