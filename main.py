@@ -33,6 +33,7 @@ def handle_commands(message):
 
     if "ice" in content.lower() and "water" in content.lower():
         modules.quotes.ice(bot, message)
+        return
 
     bot.send_message(message.chat.id, "Command not recognized.")
 
