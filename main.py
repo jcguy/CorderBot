@@ -2,6 +2,7 @@
 
 import modules.help
 import modules.rpn
+import modules.weather
 import telebot
 
 with open("token", "r") as token:
@@ -23,6 +24,10 @@ def handle_commands(message):
 
     if content.lower().startswith("rpn"):
         modules.rpn.calculate(bot, message)
+        return
+
+    if content.lower().startswith("weather"):
+        modules.weather.weather(bot, message)
         return
 
     bot.send_message(message.chat.id, "Command not recognized.")
