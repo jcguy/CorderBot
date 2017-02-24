@@ -3,6 +3,7 @@
 import modules.help
 import modules.rpn
 import modules.weather
+import modules.quotes
 import telebot
 
 with open("token", "r") as token:
